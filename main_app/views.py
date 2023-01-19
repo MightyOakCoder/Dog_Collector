@@ -49,6 +49,11 @@ def assoc_toy(request, dog_id, toy_id):
   Dog.objects.get(id=dog_id).toys.add(toy_id)
   return redirect('detail', dog_id=dog_id)
 
+def assoc_no_toy(request, dog_id, toy_id):
+  # Note that you can pass a toy's id instead of the whole toy object
+  Dog.objects.get(id=dog_id).toys.remove(toy_id)
+  return redirect('detail', dog_id=dog_id)
+
 class DogCreate(CreateView):
     model = Dog
     fields = ['name', 'breed', 'description', 'age']
