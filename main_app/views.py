@@ -56,7 +56,7 @@ def assoc_no_toy(request, dog_id, toy_id):
 
 class DogCreate(CreateView):
     model = Dog
-    fields = ['name', 'breed', 'description', 'age']
+    fields = ['name', 'breed', 'favorite_activity', 'famous_for']
     success_url = '/dogs/'
 
 class DogUpdate(UpdateView):
